@@ -1,0 +1,232 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BR05 Caring Foundation</title>  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">  <style>
+    body { margin:0; font-family: 'Poppins', sans-serif; }
+
+    nav {
+      position:sticky; top:0; z-index:1000;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:12px 30px; background:#ffffff;
+      box-shadow:0 2px 12px rgba(0,0,0,0.08);
+      border-radius:0 0 12px 12px;
+    }
+
+    .nav-links a {
+      margin:0 8px;
+      text-decoration:none;
+      color:#333;
+      font-weight:600;
+      padding:8px 16px;
+      border-radius:20px;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover {
+      background:#ff5722;
+      color:#fff;
+    }
+
+    .nav-links a:hover {
+      background:#ff5722;
+      color:#fff;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1509099836639-18ba1795216d');
+      background-size: cover;
+      color:#fff;
+      padding:35px;
+      text-align:center;
+      border-radius:20px;
+      margin:15px 20px 5px 20px; /* less gap below */
+    }
+
+    header h1 {
+      font-size:36px;
+      font-style:italic;
+      color:#ff9800;
+      font-family:'Playfair Display';
+    }
+
+    /* 🔥 DONATION SECTION UPGRADED */
+    .hero {
+      padding:60px 20px;
+      text-align:center;
+      background: linear-gradient(135deg,#fff3e0,#ffe0b2);
+      border-radius:20px;
+      margin:20px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .hero h2 {
+      font-size:30px;
+      color:#e64a19;
+      font-weight:700;
+    }
+
+    .btn {
+      background:#ff5722;
+      color:#fff;
+      padding:12px 25px;
+      border:none;
+      border-radius:25px;
+      cursor:pointer;
+      font-size:16px;
+      animation:glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow:0 0 10px #ff5722; }
+      to { box-shadow:0 0 25px #ff9800; }
+    }
+
+    .qr-box img {
+      transition:0.3s;
+      cursor:pointer;
+    }
+
+    .qr-box img:hover {
+      transform:scale(1.1);
+    }
+
+    .section { padding:30px; text-align:center; }
+
+    .cards { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+
+    .card {
+      width:280px;
+      padding:15px;
+      border-radius:15px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    footer { background:#333; color:#fff; text-align:center; padding:15px; }
+  </style></head>
+<body><nav>
+  <div>BR05</div>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+</nav><header>
+  <h1>BR05 Caring Foundation</h1>
+  <p>Helping Humanity ❤️</p>
+</header><section class="hero">
+  <h2>Your small help can change someone’s life ❤️</h2>  <div class="qr-box" style="display:inline-block; padding:15px; background:#fff; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+    <img src="qr.png" width="150">
+  </div>  <p style="margin-top:10px; font-weight:600; color:#ff5722;">
+    📱 Scan & Support ❤️
+  </p><button class="btn" onclick="donate()">💖 Donate Now</button>
+
+  <p style="margin-top:15px; font-size:16px; color:#444;">
+    Every ₹ helps someone in need 🙏
+  </p>
+</section><!-- SPONSOR SECTION (above donation) --><section style="margin:5px 20px 15px 20px; text-align:center;">
+  <div style="max-width:650px; margin:auto; background:#fff3e0; padding:10px; border-radius:12px; box-shadow:0 3px 8px rgba(0,0,0,0.1); overflow:hidden;">
+    <h3 style="color:#ff5722; margin-bottom:8px; font-size:20px;">Our Proud Supporters ❤️</h3>
+    <p style="font-size:14px; color:#555; margin-bottom:10px;">Together we make a difference 🤝</p>
+    <div class="slider">
+      <img src="sponsor1.jpg">
+      <img src="sponsor2.jpg">
+      <img src="sponsor3.jpg">
+    </div>
+  </div>
+</section><style>
+.slider{
+  display:flex;
+  width:300%;
+  animation:slide 9s infinite;
+}
+.slider img{
+  width:100%;
+  height:110px; /* slimmer rectangle */
+  object-fit:cover;
+  border-radius:8px;
+}
+@keyframes slide{
+  0%{transform:translateX(0)}
+  33%{transform:translateX(-100%)}
+  66%{transform:translateX(-200%)}
+  100%{transform:translateX(0)}
+}
+</style><!-- ABOUT SECTION --><section class="section" style="background:linear-gradient(135deg,#ffe0b2,#ffcc80); border-radius:20px; margin:20px;">
+  <h2 style="color:#e64a19;">About Us</h2>
+  <p style="max-width:700px; margin:auto; font-size:16px; line-height:1.6;">
+    BR05 Caring Foundation is dedicated to helping homeless people, feeding the hungry, and supporting those who are often ignored by society.
+    <br><br>
+    Our mission is to spread kindness, care, and humanity. Even a small help can bring a big change in someone's life ❤️
+  </p>
+</section><section class="section">
+  <h2>Our Work</h2>
+  <div class="cards" id="posts"></div>
+</section><!-- Floating Donate Button --><button class="floating-donate" onclick="donate()">💰 Donate</button>
+
+<style>
+.floating-donate{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#ff5722;
+  color:#fff;
+  border:none;
+  padding:12px 18px;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+  z-index:1000;
+  animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+.floating-donate:hover{
+  background:#e64a19;
+}
+.floating-donate:hover{
+  background:#e64a19;
+}
+</style><footer>
+  <p>© 2026 BR05 Caring Foundation</p>
+</footer><script>
+const posts = [
+  {img:'https://via.placeholder.com/300', text:'Food distribution drive'},
+  {img:'https://via.placeholder.com/300', text:'Helping homeless people'}
+];
+
+const container = document.getElementById('posts');
+
+posts.forEach(p => {
+  const div = document.createElement('div');
+  div.className='card';
+  div.innerHTML = `
+    <img src="${p.img}" width="100%">
+    <p>${p.text}</p>
+    <button onclick="like(this)">❤️ Like</button>
+    <button>💬 Comment</button>
+    <button>🔗 Share</button>
+  `;
+  container.appendChild(div);
+});
+
+function like(btn){ btn.innerText='Liked ❤️'; }
+function donate(){
+  document.getElementById('qrModal').style.display='flex';
+}
+</script><!-- QR POPUP --><div id="qrModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:2000;">
+  <div style="text-align:center;">
+    <img src="qr.png" style="width:250px; border-radius:15px;">
+    <p style="color:#fff; margin-top:10px;">Scan to Donate ❤️</p>
+  </div>
+</div><script>
+document.getElementById('qrModal').onclick=function(){
+  this.style.display='none';
+}
+</script></body>
+</html>
