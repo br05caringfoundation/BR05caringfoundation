@@ -1,338 +1,198 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BR05 Caring Foundation</title>  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">  <style>
-    body { margin:0; font-family: 'Poppins', sans-serif; }
-
-    nav {
-      position:sticky; top:0; z-index:1000;
-      display:flex; justify-content:space-between; align-items:center;
-      padding:12px 30px; background:#ffffff;
-      box-shadow:0 2px 12px rgba(0,0,0,0.08);
-      border-radius:0 0 12px 12px;
-    }
-
-    .nav-links a {
-      margin:0 8px;
-      text-decoration:none;
-      color:#333;
-      font-weight:600;
-      padding:8px 16px;
-      border-radius:20px;
-      transition:0.3s;
-    }
-
-    .nav-links a:hover {
-      background:#ff5722;
-      color:#fff;
-    }
-
-    .nav-links a:hover {
-      background:#ff5722;
-      color:#fff;
-    }
-
-    header {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1509099836639-18ba1795216d');
-      background-size: cover;
-      color:#fff;
-      padding:35px;
-      text-align:center;
-      border-radius:20px;
-      margin:15px 20px 5px 20px; /* less gap below */
-    }
-
-    header h1 {
-      font-size:36px;
-      font-style:italic;
-      color:#ff9800;
-      font-family:'Playfair Display';
-    }
-
-    /* 🔥 DONATION SECTION UPGRADED */
-    .hero {
-      padding:60px 20px;
-      text-align:center;
-      background: linear-gradient(135deg,#fff3e0,#ffe0b2);
-      border-radius:20px;
-      margin:20px;
-      box-shadow:0 6px 20px rgba(0,0,0,0.1);
-    }
-
-    .hero h2 {
-      font-size:30px;
-      color:#e64a19;
-      font-weight:700;
-    }
-
-    .btn {
-      background:#ff5722;
-      color:#fff;
-      padding:12px 25px;
-      border:none;
-      border-radius:25px;
-      cursor:pointer;
-      font-size:16px;
-      animation:glow 1.5s infinite alternate;
-    }
-
-    @keyframes glow {
-      from { box-shadow:0 0 10px #ff5722; }
-      to { box-shadow:0 0 25px #ff9800; }
-    }
-
-    .qr-box img {
-      transition:0.3s;
-      cursor:pointer;
-    }
-
-    .qr-box img:hover {
-      transform:scale(1.1);
-    }
-
-    .section { padding:30px; text-align:center; }
-
-    .cards { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
-
-    .card {
-      width:280px;
-      padding:15px;
-      border-radius:15px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    footer { background:#333; color:#fff; text-align:center; padding:15px; }
-  </style></head>
-<body><nav>
-  <div>BR05</div>
-  <div class="nav-links">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-  </div>
-</nav><header>
-  <h1>BR05 Caring Foundation</h1>
-  <p>Helping Humanity ❤️</p>
-</header><section class="hero">
-  <h2>Your small help can change someone’s life ❤️</h2>
-
-<div class="qr-box">
-  <img src="https://i.ibb.co/Nn3XT90X/Screenshot-2026-0323-010708.png"
-       style="width:300px; border-radius:15px; border:4px solid #ff9800; padding:6px; box-shadow:0 5px 20px rgba(0,0,0,0.3);">
-</div>
-
-  <p style="font-size:18px; color:#ff5722; font-weight:bold; margin-top:10px;">
-    💖 Support Our Mission – Every Help Matters ❤️
-  </p>
-
-  <button class="btn" onclick="donate()">💰 Donate Now</button>
-
-  <p style="margin-top:15px; font-size:16px; color:#444;">
-    Scan the QR & make a difference 🙏
-  </p>
-</section><!-- SPONSOR SECTION (above donation) --><section style="margin:20px; text-align:center;">
-
-  <h2 style="color:#ff5722; font-size:22px; font-weight:bold;">
-    💖 Our Proud Supporters
-  </h2>
-
-  <div class="slider-container">
-
-    <button class="prev" onclick="moveSlide(-1)">❮</button>
-
-    <div class="slider-track" id="slider">
-
-  <div class="img-box">
-    <img src="https://i.ibb.co/9kkrFVHM/IMG-20260328-020807.png">
-  </div>
-
-  <div class="img-box">
-    <img src="https://i.ibb.co/9kkrFVHM/IMG-20260328-020807.png">
-  </div>
-
-  <div class="img-box">
-    <img src="https://i.ibb.co/9kkrFVHM/IMG-20260328-020807.png">
-  </div>
-
-    <button class="next" onclick="moveSlide(1)">❯</button>
-
-  </div>
-
-  <!-- Dots -->
-  <div class="dots" id="dots"></div>
-
-</section>><style>
-.slider-container {
-  position:relative;
-  width:100%;
-  overflow:hidden;
-  border-radius:15px;
-  background:linear-gradient(135deg,#fff3e0,#ffe0b2);
-  padding:10px;
-}
-
-.slider-track {
-  display: flex;
-  transition: 0.6s ease;
-}
-
-.img-box {
-  min-width: 100%;
-  height: 180px;
-  overflow: hidden;
-  border-radius: 12px;
-  padding: 5px;
-}
-
-.img-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  image-rendering: auto;
-  filter: contrast(105%) brightness(102%) sharpness(110%);
-}
-
-/* Buttons */
-.prev, .next {
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:#ff5722;
-  color:#fff;
-  border:none;
-  padding:8px 12px;
-  cursor:pointer;
-  border-radius:50%;
-}
-
-.prev { left:10px; }
-.next { right:10px; }
-
-/* Dots */
-.dots {
-  margin-top:10px;
-}
-
-.dots span {
-  height:10px;
-  width:10px;
-  margin:0 5px;
-  background:#ccc;
-  display:inline-block;
-  border-radius:50%;
-  cursor:pointer;
-}
-
-.dots .active {
-  background:#ff5722;
-  }
-</style><!-- ABOUT SECTION --><section class="section" style="background:linear-gradient(135deg,#ffe0b2,#ffcc80); border-radius:20px; margin:20px;">
-  <h2 style="color:#e64a19;">About Us</h2>
-  <p style="max-width:700px; margin:auto; font-size:16px; line-height:1.6;">
-    BR05 Caring Foundation is dedicated to helping homeless people, feeding the hungry, and supporting those who are often ignored by society.
-    <br><br>
-    Our mission is to spread kindness, care, and humanity. Even a small help can bring a big change in someone's life ❤️
-  </p>
-</section><section class="section">
-  <h2>Our Work</h2>
-  <div class="cards" id="posts"></div>
-</section><!-- Floating Donate Button --><button class="floating-donate" onclick="donate()">💰 Donate</button>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BR05 Caring Foundation</title>
 
 <style>
-.floating-donate{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#ff5722;
-  color:#fff;
-  border:none;
-  padding:12px 18px;
-  border-radius:30px;
-  font-size:16px;
-  cursor:pointer;
-  box-shadow:0 4px 12px rgba(0,0,0,0.3);
-  z-index:1000;
-  animation:bounce 1.5s infinite;
+body {margin:0;font-family:sans-serif;}
+
+nav{
+display:flex;justify-content:space-between;
+padding:10px 20px;background:#fff;
+position:sticky;top:0;
 }
 
-@keyframes bounce{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-8px)}
+.nav-links a{
+margin:0 8px;text-decoration:none;color:#333;
 }
 
-.floating-donate:hover{
-  background:#e64a19;
+header{
+text-align:center;padding:30px;
+background:#ff9800;color:#fff;
 }
-.floating-donate:hover{
-  background:#e64a19;
+
+.hero{
+text-align:center;padding:40px;
 }
-</style><footer>
-  <p>© 2026 BR05 Caring Foundation</p>
-</footer><script>
-const posts = [
-  {img:'https://via.placeholder.com/300', text:'Food distribution drive'},
-  {img:'https://via.placeholder.com/300', text:'Helping homeless people'}
-];
 
-const container = document.getElementById('posts');
-
-posts.forEach(p => {
-  const div = document.createElement('div');
-  div.className='card';
-  div.innerHTML = `
-    <img src="${p.img}" width="100%">
-    <p>${p.text}</p>
-    <button onclick="like(this)">❤️ Like</button>
-    <button>💬 Comment</button>
-    <button>🔗 Share</button>
-  `;
-  container.appendChild(div);
-});
-
-function like(btn){ btn.innerText='Liked ❤️'; }
-function donate(){
-  document.getElementById('qrModal').style.display='flex';
+.btn{
+background:#ff5722;color:#fff;
+padding:10px 20px;border:none;
+border-radius:20px;cursor:pointer;
 }
-</script><!-- QR POPUP --><div id="qrModal" style="
-  display:none;
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.85);
-  justify-content:center;
-  align-items:center;
-  z-index:2000;
-">
 
-  <div style="text-align:center;">
-    <img src="https://i.ibb.co/Nn3XT90X/Screenshot-2026-0323-010708.png"
-         style="width:300px; border-radius:15px;">
+/* Modal */
+#qrModal{
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+}
 
-    <p style="color:#fff; margin-top:10px; font-size:18px;">
-      ❤️ Scan to Donate ❤️
-    </p>
-  </div>
+#qrModal img{
+width:250px;border-radius:10px;
+}
+
+/* Slider */
+.slider-track{
+display:flex;
+transition:0.5s;
+}
+
+.img-box{
+min-width:100%;
+}
+
+.img-box img{
+width:100%;height:180px;
+object-fit:cover;
+}
+
+/* Cards */
+.cards{
+display:flex;gap:10px;flex-wrap:wrap;
+justify-content:center;
+}
+
+.card{
+width:250px;
+box-shadow:0 2px 10px rgba(0,0,0,0.2);
+padding:10px;
+}
+
+footer{
+text-align:center;padding:10px;
+background:#333;color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div>BR05</div>
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+</div>
+</nav>
+
+<header>
+<h1>BR05 Caring Foundation</h1>
+<p>Helping Humanity ❤️</p>
+</header>
+
+<section class="hero">
+<h2>Your small help can change someone’s life ❤️</h2>
+
+<img src="https://i.ibb.co/Nn3XT90X/Screenshot-2026-0323-010708.png" width="200">
+
+<br><br>
+
+<button class="btn" onclick="openModal()">Donate Now</button>
+</section>
+
+<!-- Slider -->
+<section>
+<h2 style="text-align:center;">Our Supporters</h2>
+
+<div style="overflow:hidden;">
+<div class="slider-track" id="slider">
+
+<div class="img-box">
+<img src="https://i.ibb.co/9kkrFVHM/IMG-20260328-020807.png">
+</div>
+
+<div class="img-box">
+<img src="https://i.ibb.co/9kkrFVHM/IMG-20260328-020807.png">
+</div>
+
+<div class="img-box">
+<img src="https://i.ibb.co/9kkrFVHM/IMG-20260328-020807.png">
+</div>
 
 </div>
-</div><script>
+</div>
 
-function donate(){
-  document.getElementById('qrModal').style.display = 'flex';
+</section>
+
+<!-- About -->
+<section style="text-align:center;padding:20px;">
+<h2>About Us</h2>
+<p>We help homeless and needy people ❤️</p>
+</section>
+
+<!-- Work -->
+<section>
+<h2 style="text-align:center;">Our Work</h2>
+<div class="cards" id="posts"></div>
+</section>
+
+<footer>
+© 2026 BR05 Caring Foundation
+</footer>
+
+<!-- Modal -->
+<div id="qrModal">
+<img src="https://i.ibb.co/Nn3XT90X/Screenshot-2026-0323-010708.png">
+</div>
+
+<script>
+
+// Donate open
+function openModal(){
+document.getElementById("qrModal").style.display="flex";
 }
 
-window.onload = function(){
+// Click outside close
+document.getElementById("qrModal").onclick=function(){
+this.style.display="none";
+}
 
-  let modal = document.getElementById("qrModal");
+// Posts
+const posts=[
+{img:'https://via.placeholder.com/300',text:'Food help'},
+{img:'https://via.placeholder.com/300',text:'Helping homeless'}
+];
 
-  modal.addEventListener("click", function(e){
-    if(e.target === modal){
-      modal.style.display = "none";
-    }
-  });
+let container=document.getElementById("posts");
 
-};
+posts.forEach(p=>{
+let div=document.createElement("div");
+div.className="card";
+div.innerHTML=`
+<img src="${p.img}" width="100%">
+<p>${p.text}</p>
+<button onclick="this.innerText='Liked ❤️'">❤️ Like</button>
+`;
+container.appendChild(div);
+});
+
+// Slider
+let index=0;
+setInterval(()=>{
+let slider=document.getElementById("slider");
+index=(index+1)%3;
+slider.style.transform=`translateX(-${index*100}%)`;
+},3000);
 
 </script>
+
 </body>
 </html>
