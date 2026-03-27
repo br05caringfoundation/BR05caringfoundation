@@ -354,7 +354,8 @@ function updateDots(){
   let dots = document.querySelectorAll(".dots span");
   dots.forEach(d=>d.classList.remove("active"));
   dots[index].classList.add("active");
-}let modal = document.getElementById("qrModal");
+}
+  let modal = document.getElementById("qrModal");
 
 modal.onclick = function(event){
   if(event.target == modal){
@@ -362,8 +363,5 @@ modal.onclick = function(event){
   }
 }
 </script>
-document.getElementById('qrModal').onclick = function(){
-  this.style.display = 'none';
-}
-</script></body>
+</body>
 </html>
