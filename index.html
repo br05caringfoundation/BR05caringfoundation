@@ -5,73 +5,73 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BR05 Caring Foundation</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
 
 <style>
+body {margin:0;font-family:'Poppins',sans-serif;background:#f5f5f5;}
 
-body{margin:0;font-family:'Poppins',sans-serif;background:#f5f5f5}
-
-/* NAV */
-nav{
+nav {
+position:sticky;top:0;z-index:1000;
 display:flex;justify-content:space-between;
-padding:12px 20px;background:#fff;
-position:sticky;top:0;
+padding:12px 30px;background:#fff;
 }
 
-/* HEADER */
-header{
+.nav-links a {
+margin:0 8px;text-decoration:none;color:#333;font-weight:600;
+padding:8px 16px;border-radius:20px;
+}
+
+.nav-links a:hover {
+background:#ff5722;color:#fff;
+}
+
+header {
 background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
 url('https://images.unsplash.com/photo-1542810634-71277d95dcbb');
 background-size:cover;
 color:#fff;text-align:center;
-padding:60px 20px;
+padding:40px;
 }
 
-header h1{
+header h1 {
 font-family:'Playfair Display';
-font-size:36px;
 color:#ff9800;
 }
 
-/* HERO */
-.hero{
-text-align:center;padding:40px;
-background:#fff3e0;margin:20px;
-border-radius:15px;
+.hero {
+padding:40px;text-align:center;
+background:linear-gradient(135deg,#fff3e0,#ffe0b2);
+margin:20px;border-radius:20px;
 }
 
-.btn{
+.btn {
 background:#ff5722;color:#fff;
 padding:12px 25px;border:none;
 border-radius:25px;cursor:pointer;
 animation:glow 1.5s infinite alternate;
 }
 
-@keyframes glow{
-from{box-shadow:0 0 10px #ff5722}
-to{box-shadow:0 0 25px #ff9800}
+@keyframes glow {
+from{box-shadow:0 0 10px #ff5722;}
+to{box-shadow:0 0 25px #ff9800;}
 }
 
-/* FLOATING BUTTON */
+/* FLOAT BUTTON */
 .floating-donate{
 position:fixed;
-right:20px;
-bottom:20px;
+bottom:20px;right:20px;
 width:55px;height:55px;
 border-radius:50%;
 border:none;
-background:#ff5722;
-color:#fff;
-font-size:22px;
-cursor:pointer;
+background:#ff5722;color:#fff;
+font-size:22px;cursor:pointer;
+animation:bounce 1.5s infinite;
 z-index:2000;
-animation:float 2s infinite;
 }
 
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
-100%{transform:translateY(0)}
+@keyframes bounce{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-8px)}
 }
 
 /* MODAL */
@@ -85,11 +85,34 @@ url('https://images.unsplash.com/photo-1544027993-37dbfe43562a');
 background-size:cover;
 justify-content:center;
 align-items:center;
-z-index:1000;
+z-index:2000;
 }
 
-#qrModal img{
-width:260px;border-radius:10px;
+.modal-content{
+background:#fff;
+padding:20px;border-radius:15px;
+text-align:center;
+max-width:300px;
+}
+
+.modal-content img{
+width:200px;border-radius:10px;
+}
+
+.upi-text{
+margin-top:10px;
+}
+
+.scan-text{
+color:#ff5722;font-weight:bold;
+}
+
+.close-btn{
+margin-top:10px;
+padding:8px 15px;
+background:#ff5722;color:#fff;
+border:none;border-radius:20px;
+cursor:pointer;
 }
 
 /* SPONSOR */
@@ -100,13 +123,11 @@ text-align:center;
 }
 
 .sponsor-slider{
-position:relative;
-overflow:hidden;
+position:relative;overflow:hidden;
 }
 
 .sponsor-track{
-display:flex;
-transition:0.8s;
+display:flex;transition:0.8s;
 }
 
 .sponsor-box{
@@ -119,54 +140,41 @@ object-fit:contain;
 }
 
 .prev,.next{
-position:absolute;
-top:50%;
+position:absolute;top:50%;
 transform:translateY(-50%);
-background:#ff5722;
-color:#fff;
-border:none;
-padding:8px 12px;
-cursor:pointer;
-border-radius:50%;
+background:#ff5722;color:#fff;
+border:none;padding:8px;
+cursor:pointer;border-radius:50%;
 }
 
 .prev{left:10px;}
 .next{right:10px;}
 
-/* ABOUT */
-.about{
-padding:30px;text-align:center;
-background:#ffe0b2;margin:20px;
-border-radius:15px;
-}
+.section{padding:30px;text-align:center;}
 
-/* CARDS */
 .cards{
-display:flex;gap:15px;flex-wrap:wrap;
-justify-content:center;
+display:flex;flex-wrap:wrap;
+gap:20px;justify-content:center;
 }
 
 .card{
-width:260px;padding:10px;
-box-shadow:0 2px 10px rgba(0,0,0,0.2);
-border-radius:10px;
-background:#fff;
+width:280px;padding:15px;
+border-radius:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
 footer{
-text-align:center;
 background:#333;color:#fff;
-padding:15px;
+text-align:center;padding:15px;
 }
-
 </style>
 </head>
 
 <body>
 
 <nav>
-<div><b>BR05</b></div>
-<div>
+<div>BR05</div>
+<div class="nav-links">
 <a href="#">Home</a>
 <a href="#">About</a>
 <a href="#">Contact</a>
@@ -179,7 +187,7 @@ padding:15px;
 </header>
 
 <section class="hero">
-<h2>Your small help can change lives ❤️</h2>
+<h2>Your small help can change someone’s life ❤️</h2>
 
 <img src="https://i.ibb.co/Nn3XT90X/Screenshot-2026-0323-010708.png" width="200">
 
@@ -197,19 +205,9 @@ padding:15px;
 <button onclick="moveSlide(-1)" class="prev">❮</button>
 
 <div class="sponsor-track" id="slider">
-
-<div class="sponsor-box">
-<img src="https://i.ibb.co/9kkrFVHM/IMG-20260328-020807.png">
-</div>
-
-<div class="sponsor-box">
-<img src="https://i.ibb.co/9kkrFVHM/IMG-20260328-020807.png">
-</div>
-
-<div class="sponsor-box">
-<img src="https://i.ibb.co/9kkrFVHM/IMG-20260328-020807.png">
-</div>
-
+<div class="sponsor-box"><img src="https://i.ibb.co/9kkrFVHM/IMG-20260328-020807.png"></div>
+<div class="sponsor-box"><img src="https://i.ibb.co/9kkrFVHM/IMG-20260328-020807.png"></div>
+<div class="sponsor-box"><img src="https://i.ibb.co/9kkrFVHM/IMG-20260328-020807.png"></div>
 </div>
 
 <button onclick="moveSlide(1)" class="next">❯</button>
@@ -217,53 +215,64 @@ padding:15px;
 </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about">
+<section class="section">
 <h2>About Us</h2>
 <p>We help poor and homeless children by providing food, care and support ❤️</p>
 </section>
 
-<!-- WORK -->
-<section>
-<h2 style="text-align:center;">Our Work</h2>
+<section class="section">
+<h2>Our Work</h2>
 <div class="cards" id="posts"></div>
 </section>
 
-<footer>
-© 2026 BR05 Caring Foundation
-</footer>
+<footer>© 2026 BR05 Caring Foundation</footer>
 
-<!-- FLOAT BUTTON -->
+<!-- FLOAT -->
 <button class="floating-donate" onclick="openModal()">💖</button>
 
 <!-- MODAL -->
 <div id="qrModal">
+<div class="modal-content">
+
 <img src="https://i.ibb.co/Nn3XT90X/Screenshot-2026-0323-010708.png">
+
+<h3>❤️ Support a Life ❤️</h3>
+
+<p class="upi-text">UPI ID: <b>7739820033@ybl</b></p>
+
+<p class="scan-text">🙏 Scan now & become someone’s hope 💖</p>
+
+<button onclick="closeModal()" class="close-btn">Close</button>
+
+</div>
 </div>
 
 <script>
 
-// OPEN MODAL
+// modal
 function openModal(){
 document.getElementById("qrModal").style.display="flex";
 }
-
-// CLOSE MODAL
-document.getElementById("qrModal").onclick=function(){
-this.style.display="none";
+function closeModal(){
+document.getElementById("qrModal").style.display="none";
 }
 
-// POSTS
+// outside click
+document.getElementById("qrModal").onclick=function(e){
+if(e.target.id==="qrModal"){closeModal();}
+}
+
+// posts
 const posts=[
-{img:'https://via.placeholder.com/300',text:'Food help'},
-{img:'https://via.placeholder.com/300',text:'Helping poor children'}
+{img:'https://via.placeholder.com/300',text:'Food distribution'},
+{img:'https://via.placeholder.com/300',text:'Helping homeless'}
 ];
 
 let container=document.getElementById("posts");
 
 posts.forEach(p=>{
 let div=document.createElement("div");
-div.className="card";
+div.className='card';
 div.innerHTML=`
 <img src="${p.img}" width="100%">
 <p>${p.text}</p>
@@ -272,7 +281,7 @@ div.innerHTML=`
 container.appendChild(div);
 });
 
-// SPONSOR SLIDER
+// slider
 let index=0;
 let slider=document.getElementById("slider");
 let total=slider.children.length;
@@ -287,4 +296,4 @@ slider.style.transform=`translateX(-${index*100}%)`;
 </script>
 
 </body>
-</html>
+  </html>
