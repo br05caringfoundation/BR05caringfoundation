@@ -142,10 +142,18 @@
     <button class="prev" onclick="moveSlide(-1)">❮</button>
 
     <div class="slider-track" id="slider">
-      <img src="https://i.ibb.co/HT9MvL21/file-00000000ba4071faa167323bc8428fb9.jpg">
-      <img src="sponsor2.jpg">
-      <img src="sponsor3.jpg">
-    </div>
+
+  <div class="img-box">
+    <img src="https://i.ibb.co/HT9MvL21/file-00000000ba4071faa167323bc8428fb9.jpg">
+  </div>
+
+  <div class="img-box">
+    <img src="sponsor2.jpg">
+  </div>
+
+  <div class="img-box">
+    <img src="sponsor3.jpg">
+  </div>
 
     <button class="next" onclick="moveSlide(1)">❯</button>
 
@@ -165,16 +173,23 @@
 }
 
 .slider-track {
-  display:flex;
-  transition:0.6s ease-in-out;
+  display: flex;
+  transition: 0.6s ease;
 }
 
-.slider-track img {
-  width:100%;
-  height:150px;
-  object-fit:cover;
-  border-radius:10px;
-  margin-right:10px;
+.img-box {
+  min-width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 /* Buttons */
