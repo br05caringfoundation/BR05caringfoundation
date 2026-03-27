@@ -319,50 +319,17 @@ function donate(){
   document.getElementById('qrModal').style.display = 'flex';
 }
 <script>
-let index = 0;
-let slider = document.getElementById("slider");
-let total = slider.children.length;
+window.onload = function(){
 
-// Create dots
-let dotsContainer = document.getElementById("dots");
-for(let i=0;i<total;i++){
-  let dot = document.createElement("span");
-  dot.onclick = ()=>goToSlide(i);
-  dotsContainer.appendChild(dot);
-}
-updateDots();
-
-// Auto slide
-setInterval(()=>moveSlide(1), 4000);
-
-function moveSlide(step){
-  index = (index + step + total) % total;
-  updateSlider();
-}
-
-function goToSlide(i){
-  index = i;
-  updateSlider();
-}
-
-function updateSlider(){
-  slider.style.transform = `translateX(-${index * 100}%)`;
-  updateDots();
-}
-
-function updateDots(){
-  let dots = document.querySelectorAll(".dots span");
-  dots.forEach(d=>d.classList.remove("active"));
-  dots[index].classList.add("active");
-}
-  <script>
   let modal = document.getElementById("qrModal");
 
-modal.onclick = function(event){
-  if(event.target == modal){
-    modal.style.display = "none";
-  }
-}
+  modal.addEventListener("click", function(e){
+    if(e.target === modal){
+      modal.style.display = "none";
+    }
+  });
+
+};
 </script>
 </body>
 </html>
