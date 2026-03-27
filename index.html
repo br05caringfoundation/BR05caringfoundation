@@ -8,62 +8,52 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
 
 <style>
-body {margin:0;font-family:'Poppins',sans-serif;background:#f5f5f5;}
+body {margin:0;font-family:'Poppins',sans-serif;background:#f5f5f5}
 
-nav {
-position:sticky;top:0;z-index:1000;
+/* NAV */
+nav{
 display:flex;justify-content:space-between;
-padding:12px 30px;background:#fff;
+padding:12px 20px;background:#fff;
+position:sticky;top:0;z-index:1000;
 }
 
-.nav-links a {
-margin:0 8px;text-decoration:none;color:#333;font-weight:600;
-padding:8px 16px;border-radius:20px;
-}
-
-.nav-links a:hover {
-background:#ff5722;color:#fff;
-}
-
-header {
+/* HEADER */
+header{
 background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
 url('https://images.unsplash.com/photo-1542810634-71277d95dcbb');
-background-size:cover;
-color:#fff;text-align:center;
-padding:40px;
+background-size:cover;color:#fff;text-align:center;
+padding:50px 20px;
 }
 
-header h1 {
+header h1{
 font-family:'Playfair Display';
 color:#ff9800;
 }
 
-.hero {
-padding:40px;text-align:center;
+/* HERO */
+.hero{
+text-align:center;padding:40px;
 background:linear-gradient(135deg,#fff3e0,#ffe0b2);
 margin:20px;border-radius:20px;
 }
 
-.btn {
+.btn{
 background:#ff5722;color:#fff;
 padding:12px 25px;border:none;
 border-radius:25px;cursor:pointer;
 animation:glow 1.5s infinite alternate;
 }
 
-@keyframes glow {
-from{box-shadow:0 0 10px #ff5722;}
-to{box-shadow:0 0 25px #ff9800;}
+@keyframes glow{
+from{box-shadow:0 0 10px #ff5722}
+to{box-shadow:0 0 25px #ff9800}
 }
 
 /* FLOAT BUTTON */
 .floating-donate{
-position:fixed;
-bottom:20px;right:20px;
-width:55px;height:55px;
-border-radius:50%;
-border:none;
-background:#ff5722;color:#fff;
+position:fixed;bottom:20px;right:20px;
+width:55px;height:55px;border-radius:50%;
+border:none;background:#ff5722;color:#fff;
 font-size:22px;cursor:pointer;
 animation:bounce 1.5s infinite;
 z-index:2000;
@@ -72,47 +62,6 @@ z-index:2000;
 @keyframes bounce{
 0%,100%{transform:translateY(0)}
 50%{transform:translateY(-8px)}
-}
-
-/* MODAL */
-#qrModal{
-display:none;
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.9)),
-url('https://images.unsplash.com/photo-1544027993-37dbfe43562a');
-background-size:cover;
-justify-content:center;
-align-items:center;
-z-index:2000;
-}
-
-.modal-content{
-background:#fff;
-padding:20px;border-radius:15px;
-text-align:center;
-max-width:300px;
-}
-
-.modal-content img{
-width:200px;border-radius:10px;
-}
-
-.upi-text{
-margin-top:10px;
-}
-
-.scan-text{
-color:#ff5722;font-weight:bold;
-}
-
-.close-btn{
-margin-top:10px;
-padding:8px 15px;
-background:#ff5722;color:#fff;
-border:none;border-radius:20px;
-cursor:pointer;
 }
 
 /* SPONSOR */
@@ -150,6 +99,17 @@ cursor:pointer;border-radius:50%;
 .prev{left:10px;}
 .next{right:10px;}
 
+/* ABOUT */
+.about{
+padding:40px;text-align:center;margin:20px;border-radius:20px;color:#fff;
+
+background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
+url('https://images.unsplash.com/photo-1607746882042-944635dfe10e');
+
+background-size:cover;background-position:center;
+}
+
+/* WORK */
 .section{padding:30px;text-align:center;}
 
 .cards{
@@ -159,8 +119,50 @@ gap:20px;justify-content:center;
 
 .card{
 width:280px;padding:15px;
-border-radius:15px;
+border-radius:15px;background:#fff;
 box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* MODAL */
+#qrModal{
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+
+background:
+linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.9)),
+url('https://images.unsplash.com/photo-1581578731548-c64695cc6952');
+
+background-size:cover;
+background-position:center;
+
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
+
+.modal-content{
+background:#fff;
+padding:20px;border-radius:15px;
+text-align:center;
+max-width:300px;
+}
+
+.modal-content img{
+width:200px;border-radius:10px;
+}
+
+.scan-text{
+color:#ff5722;font-weight:bold;
+}
+
+.close-btn{
+margin-top:10px;
+padding:8px 15px;
+background:#ff5722;color:#fff;
+border:none;border-radius:20px;
+cursor:pointer;
 }
 
 footer{
@@ -173,8 +175,8 @@ text-align:center;padding:15px;
 <body>
 
 <nav>
-<div>BR05</div>
-<div class="nav-links">
+<div><b>BR05</b></div>
+<div>
 <a href="#">Home</a>
 <a href="#">About</a>
 <a href="#">Contact</a>
@@ -215,11 +217,25 @@ text-align:center;padding:15px;
 </div>
 </section>
 
-<section class="section">
-<h2>About Us</h2>
-<p>We help poor and homeless children by providing food, care and support ❤️</p>
+<!-- ABOUT -->
+<section class="about">
+<h2>🌍 About Our Mission</h2>
+
+<p>
+At <b>BR05 Caring Foundation</b>, we believe that every human life deserves dignity, food, and care. ❤️  
+<br><br>
+Every day, countless children sleep hungry, countless families struggle without support — and that's where we step in.
+<br><br>
+Our mission is simple but powerful:  
+<b>to bring hope where there is darkness, food where there is hunger, and care where there is neglect.</b>
+<br><br>
+With your small contribution, we can feed the hungry, help the homeless, and create a better future for those who need it the most.
+<br><br>
+💖 <b>Together, we can change lives.</b>
+</p>
 </section>
 
+<!-- WORK -->
 <section class="section">
 <h2>Our Work</h2>
 <div class="cards" id="posts"></div>
@@ -227,10 +243,10 @@ text-align:center;padding:15px;
 
 <footer>© 2026 BR05 Caring Foundation</footer>
 
-<!-- FLOAT -->
+<!-- FLOAT BUTTON -->
 <button class="floating-donate" onclick="openModal()">💖</button>
 
-<!-- MODAL -->
+<!-- QR MODAL -->
 <div id="qrModal">
 <div class="modal-content">
 
@@ -238,9 +254,9 @@ text-align:center;padding:15px;
 
 <h3>❤️ Support a Life ❤️</h3>
 
-<p class="upi-text">UPI ID: <b>7739820033@ybl</b></p>
+<p><b>UPI ID: 7739820033@ybl</b></p>
 
-<p class="scan-text">🙏 Scan now & become someone’s hope 💖</p>
+<p class="scan-text">🙏 Scan now & bring hope to someone’s life 💖</p>
 
 <button onclick="closeModal()" class="close-btn">Close</button>
 
@@ -256,16 +272,14 @@ document.getElementById("qrModal").style.display="flex";
 function closeModal(){
 document.getElementById("qrModal").style.display="none";
 }
-
-// outside click
 document.getElementById("qrModal").onclick=function(e){
 if(e.target.id==="qrModal"){closeModal();}
 }
 
 // posts
 const posts=[
-{img:'https://via.placeholder.com/300',text:'Food distribution'},
-{img:'https://via.placeholder.com/300',text:'Helping homeless'}
+{img:'https://via.placeholder.com/300',text:'Food distribution drive'},
+{img:'https://via.placeholder.com/300',text:'Helping homeless people'}
 ];
 
 let container=document.getElementById("posts");
@@ -296,4 +310,4 @@ slider.style.transform=`translateX(-${index*100}%)`;
 </script>
 
 </body>
-  </html>
+</html>
