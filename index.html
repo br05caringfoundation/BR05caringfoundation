@@ -4,152 +4,161 @@
 <title>BR05 Caring Foundation</title>
 
 <style>
+body{
+  font-family:Arial;
+  margin:0;
+  background:#f5f5f5;
+}
 
 /* HEADER */
-.header {
-  text-align: center;
-  padding: 15px;
+.header{
+  text-align:center;
+  background:#fff3e0;
+  padding:15px;
+}
+.site-name{
+  color:orange;
+  font-style:italic;
+  font-size:26px;
 }
 
-.logo {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
+/* ABOUT */
+.about{
+  margin:15px;
+  padding:15px;
+  background:white;
+  border-radius:10px;
 }
 
-.site-name {
-  color: orange;
-  font-style: italic;
-  font-size: 26px;
+/* DONATE */
+.donate{
+  margin:15px;
+  padding:20px;
+  background:linear-gradient(45deg,#ff9800,#ff5722);
+  color:white;
+  text-align:center;
+  border-radius:15px;
 }
 
-/* DONATE SECTION */
-.donate-section {
-  background: url("donate-bg.jpg") center/cover no-repeat;
-  padding: 40px;
-  text-align: center;
-  color: white;
-  border-radius: 15px;
-  margin: 20px;
+button{
+  padding:10px 20px;
+  border:none;
+  background:white;
+  color:#ff5722;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* POSTS */
+.post{
+  background:white;
+  margin:15px;
+  padding:10px;
+  border-radius:10px;
+}
+.post img{
+  width:100%;
+  border-radius:10px;
+}
+
+/* SPONSOR */
+.sponsor{
+  margin:15px;
+  background:white;
+  padding:10px;
+  border-radius:10px;
+  text-align:center;
 }
 
 /* MODAL */
-.modal {
-  display: none;
-  position: fixed;
+.modal{
+  display:none;
+  position:fixed;
   top:0;
   left:0;
   width:100%;
   height:100%;
-  background: rgba(0,0,0,0.7);
-  justify-content: center;
-  align-items: center;
+  background:rgba(0,0,0,0.7);
+  justify-content:center;
+  align-items:center;
 }
-
-.modal-content {
-  background:#fff;
-  padding:20px;
+.modal img{
+  width:250px;
+  background:white;
+  padding:10px;
   border-radius:10px;
 }
-
-/* SUPPORTER POSTER */
-.supporter-box {
-  width: 100%;
-  max-width: 500px;
-  margin: 20px auto;
-}
-
-.poster {
-  width: 100%;
-  height: 180px;
-  border-radius: 15px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-}
-
-.poster img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* IMAGE UPLOAD */
-#preview {
-  width:100%;
-  max-width:300px;
-  display:none;
-  border-radius:10px;
-}
-
 </style>
+
 </head>
 
 <body>
 
 <!-- HEADER -->
 <div class="header">
-  <img src="logo.png" class="logo">
   <h1 class="site-name">BR05 Caring Foundation</h1>
 </div>
 
+<!-- ABOUT -->
+<div class="about">
+  <h3>About Us</h3>
+  <p>
+    We help homeless, hungry and needy people ❤️  
+    Join us to make a better world.
+  </p>
+</div>
+
 <!-- DONATE -->
-<div class="donate-section">
-  <h2>Support Us ❤️</h2>
+<div class="donate">
+  <h2>Support Our Mission ❤️</h2>
   <button onclick="donate()">Donate Now</button>
 </div>
 
 <!-- QR MODAL -->
 <div id="qrModal" class="modal">
-  <div class="modal-content">
-    <img src="qr.png" width="250">
-  </div>
+  <img src="qr.png">
 </div>
 
-<!-- SUPPORTER -->
-<h2 style="text-align:center; color:#ff5722;">💖 Our Proud Supporters</h2>
-
-<div class="supporter-box">
-  <div class="poster">
-    <img src="https://i.ibb.co/HT9MvL21/file-00000000ba4071faa167323bc8428fb9.jpg">
-  </div>
+<!-- POSTS -->
+<div class="post">
+  <img src="work1.jpg">
+  <p>Food distribution 🍛</p>
+  <button onclick="like(this)">❤️ Like</button>
 </div>
 
-<!-- IMAGE UPLOAD -->
-<div style="text-align:center; margin:20px;">
-  <input type="file" id="upload" accept="image/*">
-  <br><br>
-  <img id="preview">
+<div class="post">
+  <img src="work2.jpg">
+  <p>Helping homeless 🏠</p>
+  <button onclick="like(this)">❤️ Like</button>
+</div>
+
+<!-- SPONSOR -->
+<div class="sponsor">
+  <h3>💖 Our Supporters</h3>
+  <img src="sponsor.jpg" style="width:100%; border-radius:10px;">
 </div>
 
 <script>
 
-/* DONATE OPEN */
+/* DONATE */
 function donate(){
-  document.getElementById("qrModal").style.display = "flex";
+  document.getElementById("qrModal").style.display="flex";
 }
 
-/* CLOSE ON OUTSIDE CLICK */
-let modal = document.getElementById("qrModal");
-
-modal.onclick = function(event){
-  if(event.target == modal){
-    modal.style.display = "none";
+/* CLOSE */
+let modal=document.getElementById("qrModal");
+modal.onclick=function(e){
+  if(e.target==modal){
+    modal.style.display="none";
   }
 }
 
-/* IMAGE PREVIEW */
-document.getElementById("upload").onchange = function(e){
-  let file = e.target.files[0];
-  if(file){
-    let url = URL.createObjectURL(file);
-    let img = document.getElementById("preview");
-    img.src = url;
-    img.style.display = "block";
-  }
+/* LIKE */
+function like(btn){
+  btn.innerText="❤️ Liked";
 }
 
 </script>
 
 </body>
-</html>
+                         </html>
