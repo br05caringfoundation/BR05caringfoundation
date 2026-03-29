@@ -5,160 +5,169 @@
 
 <style>
 body{
-  font-family:Arial;
   margin:0;
-  background:#f5f5f5;
+  font-family:Arial;
+  background:#f3f3f3;
 }
 
-/* HEADER */
-.header{
-  text-align:center;
-  background:#fff3e0;
-  padding:15px;
-}
-.site-name{
-  color:orange;
-  font-style:italic;
-  font-size:26px;
-}
-
-/* ABOUT */
-.about{
-  margin:15px;
+/* NAVBAR */
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   padding:15px;
   background:white;
-  border-radius:10px;
+  border-radius:0 0 20px 20px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+.nav h2{
+  margin:0;
+}
+.nav a{
+  margin:0 10px;
+  text-decoration:none;
+  color:black;
+  font-weight:bold;
 }
 
-/* DONATE */
-.donate{
+/* HERO */
+.hero{
   margin:15px;
   padding:20px;
-  background:linear-gradient(45deg,#ff9800,#ff5722);
-  color:white;
+  background:#f5d7b5;
+  border-radius:20px;
   text-align:center;
+}
+.hero h1{
+  color:#ff5722;
+}
+
+/* QR BOX */
+.qr-box{
+  margin-top:15px;
+  border:5px solid orange;
+  border-radius:20px;
+  padding:10px;
+  display:inline-block;
+}
+.qr-box img{
+  width:220px;
   border-radius:15px;
 }
 
-button{
-  padding:10px 20px;
+/* DONATE */
+.donate-btn{
+  margin-top:15px;
+  padding:12px 25px;
+  background:#ff5722;
+  color:white;
   border:none;
-  background:white;
+  border-radius:25px;
+  font-size:16px;
+}
+
+/* SUPPORTERS */
+.support{
+  margin:15px;
+}
+.support h2{
   color:#ff5722;
-  border-radius:8px;
-  cursor:pointer;
 }
 
-/* POSTS */
-.post{
-  background:white;
-  margin:15px;
+/* SLIDER */
+.slider{
+  overflow:hidden;
+  border-radius:20px;
+  background:#f5d7b5;
   padding:10px;
-  border-radius:10px;
 }
-.post img{
+.track{
+  display:flex;
+  transition:0.5s;
+}
+.slide{
+  min-width:100%;
+}
+.slide img{
   width:100%;
-  border-radius:10px;
+  border-radius:15px;
 }
 
-/* SPONSOR */
-.sponsor{
-  margin:15px;
-  background:white;
-  padding:10px;
-  border-radius:10px;
-  text-align:center;
+/* BUTTONS */
+.btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#ff5722;
+  color:white;
+  border:none;
+  padding:8px;
+  border-radius:50%;
 }
+.prev{ left:10px; }
+.next{ right:10px; }
 
-/* MODAL */
-.modal{
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.7);
-  justify-content:center;
-  align-items:center;
-}
-.modal img{
-  width:250px;
-  background:white;
-  padding:10px;
-  border-radius:10px;
-}
 </style>
-
 </head>
 
 <body>
 
-<!-- HEADER -->
-<div class="header">
-  <h1 class="site-name">BR05 Caring Foundation</h1>
+<!-- NAVBAR -->
+<div class="nav">
+  <h2>BR05</h2>
+  <div>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
 </div>
 
-<!-- ABOUT -->
-<div class="about">
-  <h3>About Us</h3>
-  <p>
-    We help homeless, hungry and needy people ❤️  
-    Join us to make a better world.
-  </p>
+<!-- HERO -->
+<div class="hero">
+  <h1>Your small help can change someone’s life ❤️</h1>
+
+  <div class="qr-box">
+    <img src="qr.png">
+  </div>
+
+  <h3>💖 Support Our Mission – Every Help Matters</h3>
+
+  <button class="donate-btn">💰 Donate Now</button>
 </div>
 
-<!-- DONATE -->
-<div class="donate">
-  <h2>Support Our Mission ❤️</h2>
-  <button onclick="donate()">Donate Now</button>
-</div>
+<!-- SUPPORTERS -->
+<div class="support">
+  <h2>💖 Our Proud Supporters</h2>
 
-<!-- QR MODAL -->
-<div id="qrModal" class="modal">
-  <img src="qr.png">
-</div>
+  <div class="slider">
+    <button class="btn prev" onclick="move(-1)">❮</button>
 
-<!-- POSTS -->
-<div class="post">
-  <img src="work1.jpg">
-  <p>Food distribution 🍛</p>
-  <button onclick="like(this)">❤️ Like</button>
-</div>
+    <div class="track" id="track">
+      <div class="slide"><img src="s1.jpg"></div>
+      <div class="slide"><img src="s2.jpg"></div>
+      <div class="slide"><img src="s3.jpg"></div>
+    </div>
 
-<div class="post">
-  <img src="work2.jpg">
-  <p>Helping homeless 🏠</p>
-  <button onclick="like(this)">❤️ Like</button>
-</div>
-
-<!-- SPONSOR -->
-<div class="sponsor">
-  <h3>💖 Our Supporters</h3>
-  <img src="sponsor.jpg" style="width:100%; border-radius:10px;">
+    <button class="btn next" onclick="move(1)">❯</button>
+  </div>
 </div>
 
 <script>
 
-/* DONATE */
-function donate(){
-  document.getElementById("qrModal").style.display="flex";
+let index=0;
+
+function move(step){
+  let track=document.getElementById("track");
+  let total=track.children.length;
+
+  index=(index+step+total)%total;
+  track.style.transform=`translateX(-${index*100}%)`;
 }
 
-/* CLOSE */
-let modal=document.getElementById("qrModal");
-modal.onclick=function(e){
-  if(e.target==modal){
-    modal.style.display="none";
-  }
-}
-
-/* LIKE */
-function like(btn){
-  btn.innerText="❤️ Liked";
-}
+/* AUTO SLIDE */
+setInterval(()=>move(1),4000);
 
 </script>
 
 </body>
-                         </html>
+</html>
