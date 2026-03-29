@@ -2,19 +2,13 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 
 <style>
 body{margin:0;font-family:sans-serif}
 
 /* NAV */
-nav{
-position:sticky;top:0;z-index:1000;
-display:flex;justify-content:space-between;
-padding:10px 20px;background:#fff;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
+nav{position:sticky;top:0;z-index:1000;display:flex;justify-content:space-between;padding:10px 20px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
 .nav-links{display:flex;}
 .nav-links a{margin:0 10px;text-decoration:none;color:#333;}
 .menu-icon{display:none;font-size:22px;cursor:pointer;}
@@ -30,47 +24,16 @@ header{
 text-align:center;
 background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
 url('https://images.unsplash.com/photo-1509099836639-18ba1795216d');
-background-size:cover;
-color:#fff;
-padding:60px 20px;
-border-radius:20px;margin:10px;
+background-size:cover;color:#fff;padding:60px 20px;border-radius:20px;margin:10px;
 }
-header h1{
-font-family:'Playfair Display', serif;
-font-style:italic;
-color:#ff9800;
-}
+header h1{font-family:'Playfair Display',serif;color:#ff9800;}
 
 /* SLIDER */
-.slider-container{
-position:relative;
-overflow:hidden;
-margin:10px;
-height:150px;
-border-radius:12px;
-}
-.slider{
-display:flex;
-height:100%;
-transition:0.5s ease-in-out;
-}
-.slider img{
-width:100%;
-height:100%;
-flex-shrink:0;
-object-fit:cover;
-border-radius:12px;
-}
-.slider-btn{
-position:absolute;
-top:40%;
-background:#fff;
-border:none;
-padding:5px 10px;
-cursor:pointer;
-}
-.left{left:10px;}
-.right{right:10px;}
+.slider-container{position:relative;overflow:hidden;margin:10px;height:150px;border-radius:12px;}
+.slider{display:flex;height:100%;transition:0.5s;}
+.slider img{width:100%;height:100%;object-fit:cover;}
+.slider-btn{position:absolute;top:40%;background:#fff;border:none;padding:5px;cursor:pointer;}
+.left{left:10px;} .right{right:10px;}
 
 /* DONATE */
 .hero{text-align:center;padding:30px;background:#ffe0b2;border-radius:15px;margin:10px;}
@@ -79,57 +42,42 @@ cursor:pointer;
 /* FLOAT */
 .floating-donate{
 position:fixed;bottom:20px;right:20px;
-background:#ff5722;color:#fff;padding:12px;
-border:none;border-radius:30px;
-cursor:pointer;
+background:#ff5722;color:#fff;padding:12px;border:none;border-radius:30px;
 animation:glow 1.5s infinite alternate;
 }
-@keyframes glow{
-from{box-shadow:0 0 10px #ff5722;}
-to{box-shadow:0 0 25px #ff9800;}
-}
+@keyframes glow{from{box-shadow:0 0 10px #ff5722;}to{box-shadow:0 0 25px #ff9800;}}
 
 /* ABOUT */
 #about{
-padding:40px 20px;
-text-align:center;
-color:#fff;
+padding:40px;color:#fff;text-align:center;
 background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
 url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f');
-background-size:cover;
-background-position:center;
-border-radius:15px;
-margin:10px;
+background-size:cover;border-radius:15px;margin:10px;
 }
 
 /* WORK */
-.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;}
+.cards{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;}
 .card{width:250px;padding:10px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);text-align:center;}
 .card img{width:100%;border-radius:10px}
 
-/* POPUP (🔥 NEW BG) */
+/* POPUP */
 #qrModal{
-display:none;
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-
-background:
-linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),
 url('https://images.unsplash.com/photo-1607746882042-944635dfe10e');
-
-background-size:cover;
-background-position:center;
-
-justify-content:center;
-align-items:center;
-z-index:2000;
-animation:fadeIn 0.5s;
+background-size:cover;justify-content:center;align-items:center;z-index:2000;
 }
 
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
+/* ADMIN BTN */
+.admin-btn{
+position:fixed;bottom:20px;left:20px;
+background:#333;color:#fff;padding:10px;border:none;border-radius:20px;
+z-index:3000;
+}
+.logout-btn{
+position:fixed;bottom:70px;left:20px;
+background:red;color:#fff;padding:8px;border:none;border-radius:20px;
+z-index:3000;display:none;
 }
 </style>
 </head>
@@ -148,131 +96,133 @@ to{opacity:1;}
 </div>
 </nav>
 
-<!-- HEADER -->
 <header id="home">
 <h1>BR05 Caring Foundation</h1>
 <p>Helping Poor & Needy Children ❤️</p>
 </header>
 
 <!-- SUPPORTERS -->
-<section>
-<h3 style="text-align:center;font-size:22px;color:#ff5722;font-weight:bold;">
-🌟 Our Proud Supporters 🌟
-</h3>
-
+<h3 style="text-align:center;color:#ff5722;">🌟 Our Proud Supporters 🌟</h3>
 <div class="slider-container">
-  <div class="slider" id="slider">
-    <img src="https://i.ibb.co/fVqqtpjz/file-00000000ba4071faa167323bc8428fb9.png">
-    <img src="https://i.ibb.co/fVqqtpjz/file-00000000ba4071faa167323bc8428fb9.png">
-    <img src="https://i.ibb.co/fVqqtpjz/file-00000000ba4071faa167323bc8428fb9.png">
-  </div>
-
-  <button class="slider-btn left" onclick="prevSlide()">❮</button>
-  <button class="slider-btn right" onclick="nextSlide()">❯</button>
+<div class="slider" id="slider">
+<img src="https://i.ibb.co/fVqqtpjz/file-00000000ba4071faa167323bc8428fb9.png">
+<img src="https://i.ibb.co/fVqqtpjz/file-00000000ba4071faa167323bc8428fb9.png">
+<img src="https://i.ibb.co/fVqqtpjz/file-00000000ba4071faa167323bc8428fb9.png">
 </div>
-</section>
+<button class="slider-btn left" onclick="prevSlide()">❮</button>
+<button class="slider-btn right" onclick="nextSlide()">❯</button>
+</div>
 
 <!-- DONATE -->
-<section id="donate" class="hero">
+<section class="hero">
 <h2>Support a Smile ❤️</h2>
-
 <p>Your kindness today can change someone's tomorrow 🙏</p>
 
-<img src="https://i.ibb.co/LXySNZsN/Screenshot-2026-0323-010731-1.png"
-style="width:230px;border-radius:15px;border:4px solid orange;">
+<img src="https://i.ibb.co/LXySNZsN/Screenshot-2026-0323-010731-1.png" style="width:230px;border-radius:15px;">
 
-<p style="font-weight:bold;">
-UPI ID: <span style="color:#ff5722;">7739820033@fam</span>
-</p>
+<p><b>UPI:</b> <span style="color:#ff5722;">7739820033@fam</span></p>
 
 <button class="btn" onclick="donate()">💰 Donate Now</button>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-<h2 style="color:#ff9800;">About Us</h2>
-<p>BR05 Caring Foundation is dedicated to helping poor children and spreading happiness.</p>
-<p style="color:#ff9800;font-weight:bold;">"Be the light in someone's darkest moment ✨"</p>
+<h2>About Us</h2>
+<p>We are dedicated to helping poor children and spreading happiness ❤️</p>
 </section>
 
 <!-- WORK -->
 <section id="work">
 <h2 style="text-align:center;color:#ff5722;">✨ Our Work & Impact ✨</h2>
 
+<div id="adminPanel" style="display:none;text-align:center;">
 <input type="file" id="upload">
 <button onclick="uploadPhoto()">Upload</button>
+</div>
 
 <div class="cards" id="posts"></div>
 </section>
 
 <!-- POPUP -->
-<div id="qrModal">
+<div id="qrModal" onclick="this.style.display='none'">
 <div style="text-align:center;color:#fff;">
-
-<h2 style="color:#ff9800;">Support a Better Future ❤️</h2>
-
-<img src="https://i.ibb.co/LXySNZsN/Screenshot-2026-0323-010731-1.png"
-style="width:280px;border-radius:15px;">
-
-<p style="margin-top:10px;font-size:18px;">
-Every donation brings hope 🙏
-</p>
-
-<p style="font-weight:bold;font-size:18px;">
-UPI: 7739820033@fam
-</p>
-
+<h2>Support a Better Future ❤️</h2>
+<img src="https://i.ibb.co/LXySNZsN/Screenshot-2026-0323-010731-1.png" style="width:280px;border-radius:15px;">
+<p>UPI: 7739820033@fam</p>
 </div>
 </div>
 
 <!-- FLOAT -->
 <button class="floating-donate" onclick="donate()">💰</button>
 
+<!-- ADMIN BUTTON -->
+<button class="admin-btn" onclick="adminLogin()">🔐</button>
+<button class="logout-btn" id="logoutBtn" onclick="logout()">Logout</button>
+
 <script>
 
-function toggleMenu(){
-document.getElementById("menu").classList.toggle("show");
-}
+/* MENU */
+function toggleMenu(){document.getElementById("menu").classList.toggle("show");}
 
 /* SLIDER */
-let index=0;
-const total=3;
-
-function showSlide(){
-document.getElementById("slider").style.transform=`translateX(-${index*100}%)`;
-}
-function nextSlide(){
-index=(index+1)%total;
-showSlide();
-}
-function prevSlide(){
-index=(index-1+total)%total;
-showSlide();
-}
+let i=0;
+function nextSlide(){i=(i+1)%3;document.getElementById("slider").style.transform=`translateX(-${i*100}%)`;}
+function prevSlide(){i=(i-1+3)%3;document.getElementById("slider").style.transform=`translateX(-${i*100}%)`;}
 setInterval(nextSlide,3000);
 
 /* DONATE */
-function donate(){
-document.getElementById("qrModal").style.display="flex";
+function donate(){document.getElementById("qrModal").style.display="flex";}
+
+/* ADMIN LOGIN */
+function adminLogin(){
+let pass=prompt("Enter Password");
+if(pass==="satyam5242h"){
+localStorage.setItem("admin",true);
+document.getElementById("adminPanel").style.display="block";
+document.getElementById("logoutBtn").style.display="block";
+alert("Admin Mode ON 🔥");
+}else alert("Wrong ❌");
 }
-document.getElementById("qrModal").onclick=function(){
-this.style.display="none";
+
+/* AUTO LOGIN */
+window.onload=function(){
+if(localStorage.getItem("admin")){
+document.getElementById("adminPanel").style.display="block";
+document.getElementById("logoutBtn").style.display="block";
+}
+}
+
+/* LOGOUT */
+function logout(){
+localStorage.removeItem("admin");
+location.reload();
 }
 
 /* UPLOAD */
 function uploadPhoto(){
-const file=document.getElementById('upload').files[0];
-if(!file)return;
+if(!localStorage.getItem("admin")) return;
 
-const reader=new FileReader();
+let file=document.getElementById('upload').files[0];
+let reader=new FileReader();
+
 reader.onload=function(e){
 let div=document.createElement('div');
 div.className='card';
-div.innerHTML=`<img src="${e.target.result}">
-<button onclick="this.innerText='Liked ❤️'">❤️ Like</button>`;
+div.innerHTML=`
+<img src="${e.target.result}">
+<br><br>
+<button onclick="this.innerText='Liked ❤️'">❤️</button>
+<button onclick="deletePost(this)" style="background:red;color:#fff;">🗑</button>
+`;
 document.getElementById('posts').appendChild(div);
 }
 reader.readAsDataURL(file);
+}
+
+/* DELETE */
+function deletePost(btn){
+if(!localStorage.getItem("admin")) return;
+btn.parentElement.remove();
 }
 
 </script>
