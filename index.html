@@ -7,93 +7,79 @@
 
 /* HEADER */
 .header {
-  text-align:center;
-  padding:15px;
+  text-align: center;
+  padding: 15px;
 }
+
 .logo {
-  width:70px;
-  border-radius:50%;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
 }
+
 .site-name {
-  color:orange;
-  font-style:italic;
+  color: orange;
+  font-style: italic;
+  font-size: 26px;
 }
 
-/* DONATE */
+/* DONATE SECTION */
 .donate-section {
-  background:url("donate-bg.jpg") center/cover no-repeat;
-  padding:40px;
-  text-align:center;
-  color:white;
-  border-radius:15px;
-  margin:20px;
-}
-
-/* BUTTON */
-.btn {
-  padding:10px 20px;
-  background:#ff5722;
-  color:white;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
+  background: url("donate-bg.jpg") center/cover no-repeat;
+  padding: 40px;
+  text-align: center;
+  color: white;
+  border-radius: 15px;
+  margin: 20px;
 }
 
 /* MODAL */
 .modal {
-  display:none;
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.7);
-  justify-content:center;
-  align-items:center;
+  display: none;
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
 }
+
 .modal-content {
-  background:white;
+  background:#fff;
   padding:20px;
   border-radius:10px;
 }
 
-/* SLIDER */
-.slider-container {
-  position:relative;
-  overflow:hidden;
-  margin:20px;
+/* SUPPORTER POSTER */
+.supporter-box {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
 }
-.slider-track {
-  display:flex;
-  transition:0.6s;
-}
+
 .poster {
-  min-width:100%;
-  height:180px;
+  width: 100%;
+  height: 180px;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
+
 .poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* IMAGE UPLOAD */
+#preview {
   width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-/* ARROWS */
-.prev, .next {
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:#ff5722;
-  color:#fff;
-  border:none;
-  padding:8px;
-  cursor:pointer;
-}
-.prev { left:10px; }
-.next { right:10px; }
-
-/* ADMIN PANEL */
-#admin {
+  max-width:300px;
   display:none;
-  text-align:center;
-  margin:20px;
+  border-radius:10px;
 }
 
 </style>
@@ -110,87 +96,56 @@
 <!-- DONATE -->
 <div class="donate-section">
   <h2>Support Us ❤️</h2>
-  <button class="btn" onclick="donate()">Donate QR</button>
-  <br><br>
-  <a href="upi://pay?pa=yourupiid@upi&pn=BR05&cu=INR">
-    <button class="btn">Pay via UPI</button>
-  </a>
+  <button onclick="donate()">Donate Now</button>
 </div>
 
-<!-- MODAL -->
+<!-- QR MODAL -->
 <div id="qrModal" class="modal">
   <div class="modal-content">
     <img src="qr.png" width="250">
   </div>
 </div>
 
-<!-- SLIDER -->
-<h2 style="text-align:center;">💖 Our Supporters</h2>
+<!-- SUPPORTER -->
+<h2 style="text-align:center; color:#ff5722;">💖 Our Proud Supporters</h2>
 
-<div class="slider-container">
-  <button class="prev" onclick="move(-1)">❮</button>
-
-  <div class="slider-track" id="slider">
-    <div class="poster"><img src="img1.jpg"></div>
-    <div class="poster"><img src="img2.jpg"></div>
-    <div class="poster"><img src="img3.jpg"></div>
+<div class="supporter-box">
+  <div class="poster">
+    <img src="https://i.ibb.co/HT9MvL21/file-00000000ba4071faa167323bc8428fb9.jpg">
   </div>
-
-  <button class="next" onclick="move(1)">❯</button>
 </div>
 
-<!-- ADMIN BUTTON -->
-<div style="text-align:center;">
-  <button onclick="showAdmin()">Admin Upload</button>
-</div>
-
-<!-- ADMIN PANEL -->
-<div id="admin">
-  <input type="file" id="upload">
+<!-- IMAGE UPLOAD -->
+<div style="text-align:center; margin:20px;">
+  <input type="file" id="upload" accept="image/*">
+  <br><br>
+  <img id="preview">
 </div>
 
 <script>
 
-/* DONATE */
+/* DONATE OPEN */
 function donate(){
-  document.getElementById("qrModal").style.display="flex";
+  document.getElementById("qrModal").style.display = "flex";
 }
 
-/* CLOSE MODAL */
+/* CLOSE ON OUTSIDE CLICK */
 let modal = document.getElementById("qrModal");
-modal.onclick=function(e){
-  if(e.target==modal){
-    modal.style.display="none";
+
+modal.onclick = function(event){
+  if(event.target == modal){
+    modal.style.display = "none";
   }
 }
 
-/* SLIDER */
-let index=0;
-function move(step){
-  let slider=document.getElementById("slider");
-  let total=slider.children.length;
-  index=(index+step+total)%total;
-  slider.style.transform=`translateX(-${index*100}%)`;
-}
-setInterval(()=>move(1),4000);
-
-/* ADMIN */
-function showAdmin(){
-  let pass=prompt("Enter admin password");
-  if(pass=="1234"){
-    document.getElementById("admin").style.display="block";
-  }
-}
-
-/* UPLOAD PREVIEW */
-document.getElementById("upload").onchange=function(e){
-  let file=e.target.files[0];
+/* IMAGE PREVIEW */
+document.getElementById("upload").onchange = function(e){
+  let file = e.target.files[0];
   if(file){
-    let url=URL.createObjectURL(file);
-    let div=document.createElement("div");
-    div.className="poster";
-    div.innerHTML=`<img src="${url}">`;
-    document.getElementById("slider").appendChild(div);
+    let url = URL.createObjectURL(file);
+    let img = document.getElementById("preview");
+    img.src = url;
+    img.style.display = "block";
   }
 }
 
