@@ -1,309 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BR05 Caring Foundation</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
-
 <style>
-body{margin:0;font-family:'Poppins',sans-serif;background:#f5f5f5}
-
-/* NAV */
-nav{
-display:flex;justify-content:space-between;
-padding:12px 20px;background:#fff;
-position:sticky;top:0;z-index:1000;
-}
 
 /* HEADER */
-header{
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
-url('https://images.unsplash.com/photo-1542810634-71277d95dcbb');
-background-size:cover;
-color:#fff;text-align:center;
-padding:50px 20px;
+.header {
+  text-align:center;
+  padding:15px;
+}
+.logo {
+  width:70px;
+  border-radius:50%;
+}
+.site-name {
+  color:orange;
+  font-style:italic;
 }
 
-header h1{
-font-family:'Playfair Display';
-color:#ff9800;
+/* DONATE */
+.donate-section {
+  background:url("donate-bg.jpg") center/cover no-repeat;
+  padding:40px;
+  text-align:center;
+  color:white;
+  border-radius:15px;
+  margin:20px;
 }
 
-/* HERO */
-.hero{
-text-align:center;padding:40px;
-background:linear-gradient(135deg,#fff3e0,#ffe0b2);
-margin:20px;border-radius:20px;
+/* BUTTON */
+.btn {
+  padding:10px 20px;
+  background:#ff5722;
+  color:white;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
 }
 
-.btn{
-background:#ff5722;color:#fff;
-padding:12px 25px;border:none;
-border-radius:25px;cursor:pointer;
-animation:glow 1.5s infinite alternate;
+/* MODAL */
+.modal {
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.7);
+  justify-content:center;
+  align-items:center;
+}
+.modal-content {
+  background:white;
+  padding:20px;
+  border-radius:10px;
 }
 
-@keyframes glow{
-from{box-shadow:0 0 10px #ff5722}
-to{box-shadow:0 0 25px #ff9800}
+/* SLIDER */
+.slider-container {
+  position:relative;
+  overflow:hidden;
+  margin:20px;
+}
+.slider-track {
+  display:flex;
+  transition:0.6s;
+}
+.poster {
+  min-width:100%;
+  height:180px;
+}
+.poster img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-/* FLOAT BUTTON */
-.floating-donate{
-position:fixed;bottom:20px;right:20px;
-width:55px;height:55px;border-radius:50%;
-border:none;background:#ff5722;color:#fff;
-font-size:22px;cursor:pointer;
-animation:bounce 1.5s infinite;
-z-index:2000;
+/* ARROWS */
+.prev, .next {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#ff5722;
+  color:#fff;
+  border:none;
+  padding:8px;
+  cursor:pointer;
+}
+.prev { left:10px; }
+.next { right:10px; }
+
+/* ADMIN PANEL */
+#admin {
+  display:none;
+  text-align:center;
+  margin:20px;
 }
 
-@keyframes bounce{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-8px)}
-}
-
-/* SPONSOR */
-.sponsor{
-margin:20px;padding:20px;
-background:#ffe0b2;border-radius:15px;
-text-align:center;
-}
-
-.sponsor-slider{
-position:relative;overflow:hidden;
-}
-
-.sponsor-track{
-display:flex;transition:0.8s;
-}
-
-.sponsor-box{
-min-width:100%;
-}
-
-.sponsor-box img{
-width:100%;height:180px;
-object-fit:contain;
-}
-
-.prev,.next{
-position:absolute;top:50%;
-transform:translateY(-50%);
-background:#ff5722;color:#fff;
-border:none;padding:8px;
-cursor:pointer;border-radius:50%;
-}
-
-.prev{left:10px;}
-.next{right:10px;}
-
-/* ABOUT (YOUTH BOYS BG) */
-.about{
-padding:40px;text-align:center;margin:20px;border-radius:20px;color:#fff;
-
-background:
-linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.85)),
-url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac');
-
-background-size:cover;background-position:center;
-}
-
-/* WORK */
-.section{padding:30px;text-align:center;}
-
-.cards{
-display:flex;flex-wrap:wrap;
-gap:20px;justify-content:center;
-}
-
-.card{
-width:280px;padding:15px;
-border-radius:15px;background:#fff;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* QR MODAL (EMOTIONAL BG) */
-#qrModal{
-display:none;
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-
-background:
-linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.9)),
-url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c');
-
-background-size:cover;
-background-position:center;
-
-justify-content:center;
-align-items:center;
-z-index:2000;
-}
-
-.modal-content{
-background:#fff;
-padding:20px;border-radius:15px;
-text-align:center;
-max-width:300px;
-}
-
-.modal-content img{
-width:200px;border-radius:10px;
-}
-
-.scan-text{
-color:#ff5722;font-weight:bold;
-}
-
-.close-btn{
-margin-top:10px;
-padding:8px 15px;
-background:#ff5722;color:#fff;
-border:none;border-radius:20px;
-cursor:pointer;
-}
-
-footer{
-background:#333;color:#fff;
-text-align:center;padding:15px;
-}
 </style>
 </head>
 
 <body>
 
-<nav>
-<div><b>BR05</b></div>
-<div>
-<a href="#">Home</a>
-<a href="#">About</a>
-<a href="#">Contact</a>
-</div>
-</nav>
-
-<header>
-<h1>BR05 Caring Foundation</h1>
-<p>Helping Humanity ❤️</p>
-</header>
-
-<section class="hero">
-<h2>Your small help can change someone’s life ❤️</h2>
-
-<img src="https://i.ibb.co/Nn3XT90X/Screenshot-2026-0323-010708.png" width="200">
-
-<br><br>
-
-<button class="btn" onclick="openModal()">💰 Donate Now</button>
-</section>
-
-<!-- SPONSOR -->
-<section class="sponsor">
-<h2>💖 Our Support Heroes 💖</h2>
-
-<div class="sponsor-slider">
-
-<button onclick="moveSlide(-1)" class="prev">❮</button>
-
-<div class="sponsor-track" id="slider">
-<div class="sponsor-box"><img src="https://i.ibb.co/9kkrFVHM/IMG-20260328-020807.png"></div>
-<div class="sponsor-box"><img src="https://i.ibb.co/9kkrFVHM/IMG-20260328-020807.png"></div>
-<div class="sponsor-box"><img src="https://i.ibb.co/9kkrFVHM/IMG-20260328-020807.png"></div>
+<!-- HEADER -->
+<div class="header">
+  <img src="logo.png" class="logo">
+  <h1 class="site-name">BR05 Caring Foundation</h1>
 </div>
 
-<button onclick="moveSlide(1)" class="next">❯</button>
-
+<!-- DONATE -->
+<div class="donate-section">
+  <h2>Support Us ❤️</h2>
+  <button class="btn" onclick="donate()">Donate QR</button>
+  <br><br>
+  <a href="upi://pay?pa=yourupiid@upi&pn=BR05&cu=INR">
+    <button class="btn">Pay via UPI</button>
+  </a>
 </div>
-</section>
 
-<!-- ABOUT -->
-<section class="about">
-<h2>🌍 About Our Mission</h2>
-
-<p>
-At <b>BR05 Caring Foundation</b>, we believe that every human life deserves dignity, food, and care. ❤️  
-<br><br>
-Every day, countless children sleep hungry, countless families struggle — and that's where we step in.
-<br><br>
-<b>We bring hope, food, and care to those who need it most.</b>
-<br><br>
-💖 Together, we can change lives.
-</p>
-</section>
-
-<!-- WORK -->
-<section class="section">
-<h2>Our Work</h2>
-<div class="cards" id="posts"></div>
-</section>
-
-<footer>© 2026 BR05 Caring Foundation</footer>
-
-<!-- FLOAT BUTTON -->
-<button class="floating-donate" onclick="openModal()">💖</button>
-
-<!-- QR MODAL -->
-<div id="qrModal">
-<div class="modal-content">
-
-<img src="https://i.ibb.co/Nn3XT90X/Screenshot-2026-0323-010708.png">
-
-<h3>❤️ Support a Life ❤️</h3>
-
-<p><b>UPI ID: 7739820033@fam</b></p>
-
-<p class="scan-text">🙏 Scan now & bring hope to someone’s life 💖</p>
-
-<button onclick="closeModal()" class="close-btn">Close</button>
-
+<!-- MODAL -->
+<div id="qrModal" class="modal">
+  <div class="modal-content">
+    <img src="qr.png" width="250">
+  </div>
 </div>
+
+<!-- SLIDER -->
+<h2 style="text-align:center;">💖 Our Supporters</h2>
+
+<div class="slider-container">
+  <button class="prev" onclick="move(-1)">❮</button>
+
+  <div class="slider-track" id="slider">
+    <div class="poster"><img src="img1.jpg"></div>
+    <div class="poster"><img src="img2.jpg"></div>
+    <div class="poster"><img src="img3.jpg"></div>
+  </div>
+
+  <button class="next" onclick="move(1)">❯</button>
+</div>
+
+<!-- ADMIN BUTTON -->
+<div style="text-align:center;">
+  <button onclick="showAdmin()">Admin Upload</button>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="admin">
+  <input type="file" id="upload">
 </div>
 
 <script>
 
-// modal
-function openModal(){
-document.getElementById("qrModal").style.display="flex";
-}
-function closeModal(){
-document.getElementById("qrModal").style.display="none";
-}
-document.getElementById("qrModal").onclick=function(e){
-if(e.target.id==="qrModal"){closeModal();}
+/* DONATE */
+function donate(){
+  document.getElementById("qrModal").style.display="flex";
 }
 
-// posts
-const posts=[
-{img:'https://via.placeholder.com/300',text:'Food distribution drive'},
-{img:'https://via.placeholder.com/300',text:'Helping homeless people'}
-];
+/* CLOSE MODAL */
+let modal = document.getElementById("qrModal");
+modal.onclick=function(e){
+  if(e.target==modal){
+    modal.style.display="none";
+  }
+}
 
-let container=document.getElementById("posts");
-
-posts.forEach(p=>{
-let div=document.createElement("div");
-div.className='card';
-div.innerHTML=`
-<img src="${p.img}" width="100%">
-<p>${p.text}</p>
-<button onclick="this.innerText='Liked ❤️'">❤️ Like</button>
-`;
-container.appendChild(div);
-});
-
-// slider
+/* SLIDER */
 let index=0;
-let slider=document.getElementById("slider");
-let total=slider.children.length;
+function move(step){
+  let slider=document.getElementById("slider");
+  let total=slider.children.length;
+  index=(index+step+total)%total;
+  slider.style.transform=`translateX(-${index*100}%)`;
+}
+setInterval(()=>move(1),4000);
 
-setInterval(()=>moveSlide(1),2000);
+/* ADMIN */
+function showAdmin(){
+  let pass=prompt("Enter admin password");
+  if(pass=="1234"){
+    document.getElementById("admin").style.display="block";
+  }
+}
 
-function moveSlide(step){
-index=(index+step+total)%total;
-slider.style.transform=`translateX(-${index*100}%)`;
+/* UPLOAD PREVIEW */
+document.getElementById("upload").onchange=function(e){
+  let file=e.target.files[0];
+  if(file){
+    let url=URL.createObjectURL(file);
+    let div=document.createElement("div");
+    div.className="poster";
+    div.innerHTML=`<img src="${url}">`;
+    document.getElementById("slider").appendChild(div);
+  }
 }
 
 </script>
