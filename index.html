@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
-
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet"><style>
 body{margin:0;font-family:sans-serif}
 
-/* NAV */
 nav{position:sticky;top:0;z-index:1000;display:flex;justify-content:space-between;padding:10px 20px;background:#fff;}
 .nav-links{display:flex;}
 .nav-links a{margin:0 10px;text-decoration:none;color:#333;}
@@ -19,82 +15,29 @@ nav{position:sticky;top:0;z-index:1000;display:flex;justify-content:space-betwee
 .menu-icon{display:block;}
 }
 
-/* HEADER */
-header{
-text-align:center;
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url('https://images.unsplash.com/photo-1509099836639-18ba1795216d');
-background-size:cover;color:#fff;padding:60px 20px;border-radius:20px;margin:10px;
-}
+header{text-align:center;background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('https://images.unsplash.com/photo-1509099836639-18ba1795216d');background-size:cover;color:#fff;padding:60px 20px;border-radius:20px;margin:10px;}
 header h1{font-family:'Playfair Display';color:#ff9800;}
 
-/* SLIDER FIXED */
-.slider-container{
-height:180px;
-overflow:hidden;
-position:relative;
-margin:10px;
-border-radius:12px;
-}
-
-.slider{
-display:flex;
-transition:1s ease-in-out;
-}
-
-.slider img{
-width:100%;
-height:180px;
-flex-shrink:0;
-object-fit:cover;
-}
-
-.slider-btn{
-position:absolute;top:40%;
-background:#fff;border:none;padding:5px;
-}
+.slider-container{height:180px;overflow:hidden;position:relative;margin:10px;border-radius:12px;}
+.slider{display:flex;transition:1s ease-in-out;}
+.slider img{width:100%;height:180px;flex-shrink:0;object-fit:cover;}
+.slider-btn{position:absolute;top:40%;background:#fff;border:none;padding:5px;}
 .left{left:10px;} .right{right:10px;}
 
-/* DONATE */
 .hero{text-align:center;padding:30px;background:#ffe0b2;border-radius:15px;margin:10px;}
 .btn{background:#ff5722;color:#fff;padding:10px;border:none;border-radius:20px;}
 
-/* FLOAT */
-.floating-donate{
-position:fixed;bottom:20px;right:20px;
-background:#ff5722;color:#fff;padding:12px;border:none;border-radius:30px;
-animation:glow 1.5s infinite alternate;
-}
+.floating-donate{position:fixed;bottom:20px;right:20px;background:#ff5722;color:#fff;padding:12px;border:none;border-radius:30px;animation:glow 1.5s infinite alternate;}
 @keyframes glow{from{box-shadow:0 0 10px #ff5722;}to{box-shadow:0 0 25px #ff9800;}}
 
-/* ABOUT */
-#about{
-padding:40px;text-align:center;color:#fff;
-background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
-url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f');
-background-size:cover;border-radius:15px;margin:10px;
-}
+#about{padding:40px;text-align:center;color:#fff;background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f');background-size:cover;border-radius:15px;margin:10px;}
 
-/* WORK */
 .cards{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;}
 .card{width:250px;padding:10px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
 .card img{width:100%;border-radius:10px}
 
-/* POPUP */
-#qrModal{
-display:none;position:fixed;top:0;left:0;width:100%;height:100%;
-background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),
-url('https://images.unsplash.com/photo-1607746882042-944635dfe10e');
-background-size:cover;
-justify-content:center;align-items:center;z-index:2000;
-}
-</style>
-</head>
-
-<body>
-
-<!-- NAV -->
-<nav>
+#qrModal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url('https://images.unsplash.com/photo-1607746882042-944635dfe10e');background-size:cover;justify-content:center;align-items:center;z-index:2000;}
+</style></head><body><nav>
 <div style="color:#ff5722;font-weight:bold;">BR05</div>
 <div class="menu-icon" onclick="toggleMenu()">☰</div>
 <div class="nav-links" id="menu">
@@ -103,85 +46,52 @@ justify-content:center;align-items:center;z-index:2000;
 <a href="#donate">Donate</a>
 <a href="#work">Our Work</a>
 </div>
-</nav>
-
-<header id="home">
+</nav><header id="home">
 <h1>BR05 Caring Foundation</h1>
-<p>Helping Poor Children ❤️</p>
-</header>
-
-<!-- SUPPORTERS -->
-<h3 style="text-align:center;color:#ff5722;">🌟 Our Proud Supporters 🌟</h3>
-
-<div class="slider-container">
+<p>Helping humanity ❤️</p>
+</header><h3 style="text-align:center;color:#ff5722;">🌟 Our Proud Supporters 🌟</h3><div class="slider-container">
 <div class="slider" id="slider">
 <img src="https://i.ibb.co/fVqqtpjz/file-00000000ba4071faa167323bc8428fb9.png">
 <img src="https://i.ibb.co/fVqqtpjz/file-00000000ba4071faa167323bc8428fb9.png">
 <img src="https://i.ibb.co/fVqqtpjz/file-00000000ba4071faa167323bc8428fb9.png">
 </div>
-
 <button class="slider-btn left" onclick="prevSlide()">❮</button>
 <button class="slider-btn right" onclick="nextSlide()">❯</button>
-</div>
-
-<!-- DONATE -->
-<section class="hero">
+</div><section class="hero">
 <h2>Support a Smile ❤️</h2>
 <p>Your kindness can change lives 🙏</p>
-
 <img src="https://i.ibb.co/LXySNZsN/Screenshot-2026-0323-010731-1.png" style="width:230px;border-radius:15px;">
 <p><b>UPI:</b> 7739820033@fam</p>
-
 <button class="btn" onclick="donate()">💰 Donate Now</button>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
+</section><section id="about">
 <h2>About Us</h2>
 <p>We help poor children and spread happiness ❤️</p>
-</section>
-
-<!-- WORK -->
-<section id="work">
-<h2 style="text-align:center;color:#ff5722;">✨ Our Work & Impact ✨</h2>
-
-<div id="adminPanel" style="display:none;text-align:center;">
+</section><section id="work">
+<h2 style="text-align:center;color:#ff5722;">✨ Our Work & Impact ✨</h2><div id="adminPanel" style="display:none;text-align:center;">
 <input type="file" id="upload">
 <button onclick="uploadPhoto()">Upload</button>
-</div>
-
-<div class="cards" id="posts"></div>
-</section>
-
-<!-- POPUP -->
-<div id="qrModal" onclick="this.style.display='none'">
+</div><div class="cards" id="posts"></div>
+</section><div id="qrModal" onclick="this.style.display='none'">
 <div style="text-align:center;color:#fff;">
 <h2>Support a Better Future ❤️</h2>
 <img src="https://i.ibb.co/LXySNZsN/Screenshot-2026-0323-010731-1.png" style="width:280px;border-radius:15px;">
 <p>UPI: 7739820033@fam</p>
 </div>
-</div>
-
-<button class="floating-donate" onclick="donate()">💰</button>
+</div><button class="floating-donate" onclick="donate()">💰</button>
 
 <script>
 
-/* MENU */
 function toggleMenu(){document.getElementById("menu").classList.toggle("show");}
 
-/* SLIDER */
 let index=0;
-function showSlide(){
-document.getElementById("slider").style.transform=`translateX(-${index*100}%)`;
-}
+function showSlide(){document.getElementById("slider").style.transform=`translateX(-${index*100}%)`;}
 function nextSlide(){index=(index+1)%3;showSlide();}
 function prevSlide(){index=(index-1+3)%3;showSlide();}
 setInterval(nextSlide,5000);
 
-/* DONATE */
 function donate(){document.getElementById("qrModal").style.display="flex";}
 
-/* 🔐 HIDDEN ADMIN */
+/* 🔐 Hidden Admin */
 let tap=0;
 document.body.addEventListener("click",()=>{
 tap++;
@@ -197,41 +107,61 @@ tap=0;
 setTimeout(()=>{tap=0;},2000);
 });
 
-/* AUTO ADMIN */
-window.onload=function(){
-if(localStorage.getItem("admin")){
-document.getElementById("adminPanel").style.display="block";
-}
+/* 📸 Add Photo */
+function addPhoto(src){
+let div=document.createElement('div');
+div.className='card';
+
+div.innerHTML=`
+<img src="${src}">
+<br><br>
+<button onclick="this.innerText='Liked ❤️'">❤️</button>
+<button onclick="deletePost(this,'${src}')" style="background:red;color:#fff;">🗑</button>
+`;
+
+document.getElementById('posts').appendChild(div);
 }
 
-/* UPLOAD */
+/* 📸 Upload Permanent */
 function uploadPhoto(){
 if(!localStorage.getItem("admin")) return;
 
 let file=document.getElementById('upload').files[0];
-let reader=new FileReader();
+if(!file) return;
 
+let reader=new FileReader();
 reader.onload=function(e){
-let div=document.createElement('div');
-div.className='card';
-div.innerHTML=`
-<img src="${e.target.result}">
-<br><br>
-<button onclick="this.innerText='Liked ❤️'">❤️</button>
-<button onclick="deletePost(this)" style="background:red;color:#fff;">🗑</button>
-`;
-document.getElementById('posts').appendChild(div);
+let imgData=e.target.result;
+
+let saved=JSON.parse(localStorage.getItem("photos")||"[]");
+saved.push(imgData);
+localStorage.setItem("photos",JSON.stringify(saved));
+
+addPhoto(imgData);
 }
 reader.readAsDataURL(file);
 }
 
-/* DELETE */
-function deletePost(btn){
+/* 🗑 Delete */
+function deletePost(btn,src){
 if(!localStorage.getItem("admin")) return;
+
 btn.parentElement.remove();
+
+let saved=JSON.parse(localStorage.getItem("photos")||"[]");
+saved=saved.filter(img=>img!==src);
+localStorage.setItem("photos",JSON.stringify(saved));
 }
 
-</script>
+/* 🔄 Load Saved */
+window.onload=function(){
+if(localStorage.getItem("admin")){
+document.getElementById("adminPanel").style.display="block";
+}
 
-</body>
+let saved=JSON.parse(localStorage.getItem("photos")||"[]");
+saved.forEach(src=>addPhoto(src));
+}
+
+</script></body>
 </html>
